@@ -73,9 +73,10 @@ def melting_params(x):
     match_enthalpy = re.search(r'Enthalpy.*?([\-\d.]+)', x)
     match_entropy = re.search(r'Entropy.*?([\-\d.]+)', x)
     match_melting_temperature = re.search(r'Melting temperature.*?([\-\d.]+)', x)
-    enthalpy = float(match_enthalpy.group(1))
-    entropy = float(match_entropy.group(1))
-    melting_temperature = float(match_melting_temperature.group(1))
+    enthalpy = float(match_enthalpy.group(1) if match_enthalpy else 0)
+    entropy = float(match_entropy.group(1) if match_entropy else 0)
+    melting_temperature = float(match_melting_temperature.group(1) if match_melting_temperature else 0)
+
     gibbs_free_energy = enthalpy - (melting_temperature+273.15)* entropy
     return enthalpy, entropy, gibbs_free_energy
  
@@ -234,5 +235,5 @@ if __name__ == "__main__":
             rows.append(row)
     if(args.sort):
         rows = sorted(rows, key=lambda x: (math.isnan(x[4]), x[4]), reverse=False) #if reverse is true then descending order
-    # print(rows)
+    print(rows)
     write_to_csv(rows, args.output_file)

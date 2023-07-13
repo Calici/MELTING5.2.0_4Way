@@ -1,0 +1,28 @@
+FROM debian:bullseye-slim AS git-cloner
+
+RUN apt-get -y update
+RUN apt-get -y install git
+
+
+RUN git clone https://github.com/Calici/MELTING5.2.0_4Way
+
+
+FROM openjdk:21-ea-17-slim-bullseye AS java-exec
+
+
+RUN apt-get -y update
+RUN apt-get -y install python3
+
+WORKDIR /Final
+
+# COPY --from=git-cloner /MELTING5.2.0_4Way/executable .
+COPY --from=git-cloner /MELTING5.2.0_4Way/executable/melting .
+COPY --from=git-cloner /MELTING5.2.0_4Way/executable/input.csv .
+COPY --from=git-cloner /MELTING5.2.0_4Way/executable/melting5.jar .
+COPY --from=git-cloner /MELTING5.2.0_4Way/executable/4wayJunction.py .
+
+
+RUN chmod +x melting
+
+
+CMD [ "python3", "4wayJunction.py" ]
