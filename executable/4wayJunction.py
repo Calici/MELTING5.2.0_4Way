@@ -142,7 +142,7 @@ if __name__ == "__main__":
     # parser.add_argument('-help', '--help', action='help', help='Show this help message and exit')
     args = parser.parse_args()
     rows = []
-    with open('input.csv', mode='r') as file:
+    with open(args.input_file, mode='r') as file:
         reader = csv.reader(file)
         next(reader)
         for row in reader:
