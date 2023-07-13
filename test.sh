@@ -1,0 +1,1 @@
+docker run -v $1:/TargetFolder melting -in /TargetFolder/input.csv -out /TargetFolder/output.csv
