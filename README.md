@@ -8,17 +8,17 @@ Follow the steps below:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/Calici/MELTING5.2.0_4Way
+   Download the DockerFile
     ```
 
 2. Navigate into the cloned directory:
     ```bash
-    cd MELTING5.2.0_4Way
+   docker build -t melting .
     ```
 
 3. Run the bash script by providing the path to your specific folder which contains the input CSV file. For example:
     ```bash
-    bash test.sh /path/to/your/folder
+   bash test.sh ./target
     ```
     **Note:** Replace `/path/to/your/folder` with the actual path to your folder containing the input CSV file.
 
