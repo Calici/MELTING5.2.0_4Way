@@ -1,5 +1,15 @@
-How to run:
-      1) git clone https://github.com/Calici/MELTING5.2.0_4Way/edit/main/README
-      2) bash test.sh FolderWiththeInput.CSVStoredInIt
-Prerequisites
-      1) Have docker desktop installed and running
+# MELTING5.2.0_4Way
+
+## Prerequisites
+1. You should have Docker Desktop installed and running on your machine. If not installed, you can download it from [here](https://www.docker.com/products/docker-desktop).
+
+## How to Run the Project
+1. First, clone the repository using the following command:
+```bash
+git clone https://github.com/Calici/MELTING5.2.0_4Way
+2. Navigate to the cloned directory:
+```bash
+cd MELTING5.2.0_4Way
+3. Now, you can run the bash script by pointing it to your specific folder which contains the input CSV file. Here's an example command:
+```bash
+bash test.sh /path/to/your/FolderWiththeInput.CSVStoredInIt
