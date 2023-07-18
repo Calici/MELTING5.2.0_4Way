@@ -21,5 +21,6 @@ Follow the steps below:
    bash test.sh ./target
     ```
     **Note:** Replace `/path/to/your/folder` with the actual path to your folder containing the input CSV file.
-
+   
+5. You will find the output.csv in the ./target folder
 If you encounter any issues, feel free to open a new issue in this repository.
